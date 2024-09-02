@@ -51,10 +51,11 @@ export class MyComponent {
   render() {
     return <Host>
       <div class="header">
-        <dnn-searchbox placeholder={this.resx.uI.searchPlaceholder || "Search"} onQueryChanged={e => state.searchQuery = e.detail} />
-        {state.userCanEdit &&
-          <my-create />
-        }
+        <dnn-searchbox placeholder={"Search"} onQueryChanged={e => state.searchQuery = e.detail} />
+          <my-create /> 
+      </div>
+      <div>
+        <dnn-richtext></dnn-richtext>
       </div>
       <my-items-list />
     </Host>;

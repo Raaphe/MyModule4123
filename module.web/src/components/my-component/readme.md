@@ -50,31 +50,33 @@ Simply load the javascript library, provide it a module id and you are good to g
 | `moduleId` _(required)_ | `module-id` | The Dnn module id, required in order to access web services. | `number` | `undefined` |
 
 
-## CSS Custom Properties
-
-| Name                           | Description                                                                   |
-| ------------------------------ | ----------------------------------------------------------------------------- |
-| `--results-summary-text-align` | Defines the alignement of the result summary, "left"\|"center"\|"right", etc. |
-
-
 ## Dependencies
 
 ### Depends on
 
 - dnn-searchbox
-- dnn-chevron
-- dnn-collapsible
-- dnn-button
+- [my-create](../my-create)
+- [my-items-list](../my-items-list)
 
 ### Graph
 ```mermaid
 graph TD;
   my-component --> dnn-searchbox
-  my-component --> dnn-chevron
-  my-component --> dnn-collapsible
-  my-component --> dnn-button
+  my-component --> my-create
+  my-component --> my-items-list
+  my-create --> dnn-button
+  my-create --> dnn-modal
+  my-create --> my-edit
   dnn-button --> dnn-modal
   dnn-button --> dnn-button
+  my-edit --> dnn-button
+  my-items-list --> dnn-chevron
+  my-items-list --> dnn-collapsible
+  my-items-list --> my-item-details
+  my-items-list --> dnn-button
+  my-item-details --> dnn-button
+  my-item-details --> dnn-modal
+  my-item-details --> my-edit
   style my-component fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

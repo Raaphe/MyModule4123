@@ -761,27 +761,27 @@ class Build : NukeBuild
         .DependsOn(Swagger)
         .Executes(() =>
         {
-            DocFXTasks.DocFXMetadata(s => s
-                .SetProcessWorkingDirectory(DocFxProjectDirectory));
+            //DocFXTasks.DocFXMetadata(s => s
+            //    .SetProcessWorkingDirectory(DocFxProjectDirectory));
 
-            var sb = new StringBuilder();
-            sb.AppendLine("# Backend API documentation")
-                .AppendLine()
-                .AppendLine("This section documents the APIs available in the backend (c#) code.")
-                .AppendLine()
-                .AppendLine("Please expand the namespaces to navigate through the APIs.");
-            (DocFxProjectDirectory / "api" / "index.md").WriteAllText(sb.ToString());
+            //var sb = new StringBuilder();
+            //sb.AppendLine("# Backend API documentation")
+            //    .AppendLine()
+            //    .AppendLine("This section documents the APIs available in the backend (c#) code.")
+            //    .AppendLine()
+            //    .AppendLine("Please expand the namespaces to navigate through the APIs.");
+            //(DocFxProjectDirectory / "api" / "index.md").WriteAllText(sb.ToString());
 
-            NpmTasks.NpmInstall(s => s
-                .SetProcessWorkingDirectory(DocFxProjectDirectory));
+            //NpmTasks.NpmInstall(s => s
+            //    .SetProcessWorkingDirectory(DocFxProjectDirectory));
 
-            NpmTasks.NpmRun(s => s
-                .SetProcessWorkingDirectory(DocFxProjectDirectory)
-                .SetArguments("adjust_toc"));
+            //NpmTasks.NpmRun(s => s
+            //    .SetProcessWorkingDirectory(DocFxProjectDirectory)
+            //    .SetArguments("adjust_toc"));
 
-            DocFXTasks.DocFXBuild(s => s
-                .SetOutputFolder(RootDirectory)
-                .SetProcessWorkingDirectory(DocFxProjectDirectory));
+            //DocFXTasks.DocFXBuild(s => s
+            //    .SetOutputFolder(RootDirectory)
+            //    .SetProcessWorkingDirectory(DocFxProjectDirectory));
         });
 
     Target Docs => _ => _
